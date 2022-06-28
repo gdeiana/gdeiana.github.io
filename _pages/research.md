@@ -27,22 +27,3 @@ higher uptake of voluntary physical distancing. This suggests that the
 targeted promotion of distancing among less responsive groups may
 be as effective as across-the-board lockdowns, while also being less
 damaging to the economy.
-
-## In Progress
-### [No More Free Choice: An Empirical Analysis of Default Options in the Amazon Marketplace](https://gdeiana.github.io/assets/docs/Amazon_choice.pdf)
-*Guido Deiana*  
-*15 May 2021*  
-
-The purpose of this work is to estimate the impact of products suggestions
-in an online marketplace on consumer choice. Specifically, we focus on the
-Amazon marketplace and we study how a platform suggestion (the “Amazon’s Choice” badge) affects demand. 
-We collected data on usb cables sold
-in the five Amazon Europe marketplaces and from numerous sources we obtained
-the time series of prices, reviews, and of a proxy for sales. Then, we
-developed a discrete choice model in the characteristics’ space. Following the
-Empirical Industrial Organization literature, the model is then estimated using
-a Nested Logit and a Random Coeﬀicient Logit (BLP). The models show
-that the “Amazon’s Choice” badge has an extremely large, positive, and statistically 
-significant effect on demand. These results show the potential for
-distortion of consumers’ choice coming from a vertically integrated platform
-which competes with third party sellers in its own environment.
