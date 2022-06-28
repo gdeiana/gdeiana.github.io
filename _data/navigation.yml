@@ -1,0 +1,9 @@
+main:
+  - title: "Posts"
+    url: /posts/
+  - title: "Research"
+    url: /research/
+  - title: "About"
+    url: /about/
+  - title: "CV"
+    url: "https://gdeiana.github.io/assets/docs/Guido_Deiana_CV.pdf"

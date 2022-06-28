@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-15T18:18:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guido Deiana</title><subtitle>My personal webpage, including Economics and Data Science pages. Personal blog posts, pieces of code and other unrelated stuff.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;MSc in Economics graduate. Currently working as an RA at Bocconi University in Milan.&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;deianaguido@gmail.com&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:deianaguido@gmail.com&quot;}]}</name></author><entry><title type="html">Run Stata in VS Code</title><link href="http://localhost:4000/economics/stata-vscode/" rel="alternate" type="text/html" title="Run Stata in VS Code" /><published>2021-08-26T00:00:00+02:00</published><updated>2022-01-15T18:19:06+01:00</updated><id>http://localhost:4000/economics/stata-vscode</id><content type="html" xml:base="http://localhost:4000/economics/stata-vscode/">&lt;p&gt;If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;br /&gt;
+This guide is heavily based on a guide I found online a few months ago.&lt;br /&gt;
+As I was not able to find it again I decided to rewrite here all the passages so that this could be useful for anyone who needed it.&lt;br /&gt;
+If the original author finds this guide, please contact me! I will be more than happy to include the relevant references to your blog post.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-running-stata-in-visual-studio-code&quot;&gt;Why running Stata in Visual Studio Code&lt;/h2&gt;
+&lt;p&gt;Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.&lt;br /&gt;
+However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.&lt;/p&gt;
+
+&lt;p&gt;Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Text and command autocomplete&lt;/li&gt;
+  &lt;li&gt;Better syntax highlight&lt;/li&gt;
+  &lt;li&gt;Single environment for all my codes (Stata, python, R and even LaTex)&lt;/li&gt;
+  &lt;li&gt;Seamless integration with Git&lt;/li&gt;
+  &lt;li&gt;Snippets&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;how-to-install-and-run-stata-from-vscode&quot;&gt;How to Install and run Stata from VSCode&lt;/h2&gt;
+
+&lt;h3 id=&quot;install-vs-code&quot;&gt;Install VS code&lt;/h3&gt;
+&lt;p&gt;Look for the latest VS Code version available here: &lt;a href=&quot;https://code.visualstudio.com&quot;&gt;https://code.visualstudio.com&lt;/a&gt;&lt;br /&gt;
+Click on &lt;em&gt;Download&lt;/em&gt; and install VS Code&lt;/p&gt;
+
+&lt;h3 id=&quot;install-plug-ins&quot;&gt;Install Plug-Ins&lt;/h3&gt;
+&lt;p&gt;To install extensions in VS Code click on the icon indicated below.
+&lt;img src=&quot;https://gdeiana.github.io/assets/images/Stata_vscode/Extensions.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Two plugins are necessary to run Stata in VS Code:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Stata Enhanced&lt;/strong&gt;&lt;br /&gt;
+Allows VS Code to recognize files &lt;em&gt;.do&lt;/em&gt; and assigns them a familiar syntax highlighting&lt;br /&gt;
+&lt;img src=&quot;https://gdeiana.github.io/assets/images/Stata_vscode/Stataenh.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Code Runner&lt;/strong&gt;&lt;br /&gt;
+Allows VS Code to run custom commands with a shortcut&lt;br /&gt;
+&lt;img src=&quot;https://gdeiana.github.io/assets/images/Stata_vscode/Coderun.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;download-and-edit-custom-scripts&quot;&gt;Download and edit custom scripts&lt;/h3&gt;
+&lt;h4 id=&quot;download-scripts&quot;&gt;Download Scripts&lt;/h4&gt;
+&lt;p&gt;Two custom scripts are needed to run Stata from another code editor.
+Download the scripts here: &lt;a href=&quot;https://huebler.blogspot.com/2008/04/stata.html&quot;&gt;https://huebler.blogspot.com/2008/04/stata.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you are using Stata 15 or later, then &lt;em&gt;rundo51.zip&lt;/em&gt; and &lt;em&gt;rundolines51.zip&lt;/em&gt; should work. Otherwise if you are using an earlier version, download &lt;em&gt;Rundo41.zip&lt;/em&gt; and &lt;em&gt;Rundolines41.zip&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code.&lt;/p&gt;
+
+&lt;h4 id=&quot;edit-scripts&quot;&gt;Edit Scripts&lt;/h4&gt;
+&lt;p&gt;In both &lt;em&gt;rundo&lt;/em&gt; and &lt;em&gt;rundolines&lt;/em&gt; zipped folders you will find a config file:
+&lt;img src=&quot;https://gdeiana.github.io/assets/images/Stata_vscode/Config1.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Open the config file and edit the following lines:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;statapath = “[Path to your stata Executable]”&lt;/em&gt;]&lt;br /&gt;
+Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”*&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;statawin = “[Stata Version]”&lt;/em&gt;&lt;br /&gt;
+Example: &lt;em&gt;statawin = “Stata/SE 15.0”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then save the config files and close them.&lt;/p&gt;
+
+&lt;h3 id=&quot;edit-vs-code-settings&quot;&gt;Edit VS Code settings&lt;/h3&gt;
+&lt;p&gt;To open the VS Code settings use: &lt;em&gt;CTRL + SHIFT + P&lt;/em&gt;.
+In the dialog window that opens, look for &lt;em&gt;Preferences: Open Settings (JSON)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A new window should open with a json file (a text file between two curly brackets).&lt;/p&gt;
+
+&lt;p&gt;Paste the following line of code &lt;strong&gt;between the two curly brackets&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code-runner.executorMapByFileExtension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;.do&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[Path to rundo.exe]&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code-runner.customCommand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[Path to rundolines.exe]&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stataRun.stataPath&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[Path to Stata.exe]&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stataRun.whichApp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;stataMP&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stataRun.pasteSpeed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stataRun.advancePosition&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files.&lt;br /&gt;
+Note that the path don’t work if there are any spaces and require the use of double slashes to be readable.&lt;/p&gt;
+
+&lt;p&gt;Here you can find an example for the path where I have saved rundo.exe:&lt;/p&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;code-runner.executorMapByFileExtension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;.do&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;PROGRA~2&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Stata13&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ado&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;personal&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rundo41&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rundo.exe&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;add-shortcuts-to-vs-code-to-run-stata&quot;&gt;Add Shortcuts to VS Code to run Stata&lt;/h3&gt;
+&lt;p&gt;In Stata’s do file editor we are used to using the &lt;em&gt;CTRL + D&lt;/em&gt; shortcut a lot.&lt;br /&gt;
+Fortunately there is an (almost) identical solution here in VS Code.&lt;/p&gt;
+
+&lt;p&gt;As for the previous step, we need to open the command bar in VS Code by clicking &lt;em&gt;CTRL + SHIFT + P&lt;/em&gt;.&lt;br /&gt;
+Then we need to look for &lt;em&gt;Preferences: Open Keyboard Shortcuts&lt;/em&gt;.
+Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut &lt;em&gt;CTRL + D&lt;/em&gt;.&lt;br /&gt;
+Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to &lt;em&gt;CTRL + SHIFT + D&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console.&lt;/p&gt;
+
+&lt;p&gt;If stata is not opened when using either command, then VS Code will simply open a new instance of Stata.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code.&lt;/p&gt;
+
+&lt;h2 id=&quot;credits&quot;&gt;Credits&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Code Runner&lt;/em&gt; author Jun Han: &lt;a href=&quot;https://github.com/formulahendry&quot;&gt;https://github.com/formulahendry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Stata Enhanced&lt;/em&gt; author Kyle Barron: &lt;a href=&quot;https://marketplace.visualstudio.com/publishers/kylebarron&quot;&gt;https://marketplace.visualstudio.com/publishers/kylebarron&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Rundo&lt;/em&gt; and &lt;em&gt;Rundolines&lt;/em&gt; author Friedrich Huebler: &lt;a href=&quot;https://huebler.blogspot.com/&quot;&gt;https://huebler.blogspot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;MSc in Economics graduate. Currently working as an RA at Bocconi University in Milan.&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;deianaguido@gmail.com&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:deianaguido@gmail.com&quot;}]}</name></author><category term="Economics" /><category term="Software" /><category term="Stata" /><summary type="html">If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.</summary></entry></feed>

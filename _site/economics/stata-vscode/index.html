@@ -1,0 +1,451 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Run Stata in VS Code - Guido Deiana</title>
+<meta name="description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Guido Deiana">
+<meta property="og:title" content="Run Stata in VS Code">
+<meta property="og:url" content="http://localhost:4000/economics/stata-vscode/">
+
+
+  <meta property="og:description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-26T00:00:00+02:00">
+
+
+
+  <meta property="article:modified_time" content="2022-01-15T18:19:00+01:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/economics/stata-vscode/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Guido Deiana Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Guido Deiana
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/research/">Research</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://gdeiana.github.io/assets/docs/Guido_Deiana_CV.pdf">CV</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Run Stata in VS Code">
+    <meta itemprop="description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
+    <meta itemprop="datePublished" content="2021-08-26T00:00:00+02:00">
+    <meta itemprop="dateModified" content="2022-01-15T18:18:58+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/economics/stata-vscode/" class="u-url" itemprop="url">Run Stata in VS Code
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> In this page</h4></header>
+              <ul class="toc__menu"><li><a href="#why-running-stata-in-visual-studio-code">Why running Stata in Visual Studio Code</a></li><li><a href="#how-to-install-and-run-stata-from-vscode">How to Install and run Stata from VSCode</a><ul><li><a href="#install-vs-code">Install VS code</a></li><li><a href="#install-plug-ins">Install Plug-Ins</a></li><li><a href="#download-and-edit-custom-scripts">Download and edit custom scripts</a><ul><li><a href="#download-scripts">Download Scripts</a></li><li><a href="#edit-scripts">Edit Scripts</a></li></ul></li><li><a href="#edit-vs-code-settings">Edit VS Code settings</a></li><li><a href="#add-shortcuts-to-vs-code-to-run-stata">Add Shortcuts to VS Code to run Stata</a></li></ul></li><li><a href="#credits">Credits</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.</p>
+
+<p><strong>Disclaimer</strong><br />
+This guide is heavily based on a guide I found online a few months ago.<br />
+As I was not able to find it again I decided to rewrite here all the passages so that this could be useful for anyone who needed it.<br />
+If the original author finds this guide, please contact me! I will be more than happy to include the relevant references to your blog post.</p>
+
+<h2 id="why-running-stata-in-visual-studio-code">Why running Stata in Visual Studio Code</h2>
+<p>Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.<br />
+However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.</p>
+
+<p>Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon:</p>
+<ol>
+  <li>Text and command autocomplete</li>
+  <li>Better syntax highlight</li>
+  <li>Single environment for all my codes (Stata, python, R and even LaTex)</li>
+  <li>Seamless integration with Git</li>
+  <li>Snippets</li>
+</ol>
+
+<h2 id="how-to-install-and-run-stata-from-vscode">How to Install and run Stata from VSCode</h2>
+
+<h3 id="install-vs-code">Install VS code</h3>
+<p>Look for the latest VS Code version available here: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a><br />
+Click on <em>Download</em> and install VS Code</p>
+
+<h3 id="install-plug-ins">Install Plug-Ins</h3>
+<p>To install extensions in VS Code click on the icon indicated below.
+<img src="https://gdeiana.github.io/assets/images/Stata_vscode/Extensions.PNG" alt="" /></p>
+
+<p>Two plugins are necessary to run Stata in VS Code:</p>
+<ol>
+  <li>
+    <p><strong>Stata Enhanced</strong><br />
+Allows VS Code to recognize files <em>.do</em> and assigns them a familiar syntax highlighting<br />
+<img src="https://gdeiana.github.io/assets/images/Stata_vscode/Stataenh.PNG" alt="" /></p>
+  </li>
+  <li>
+    <p><strong>Code Runner</strong><br />
+Allows VS Code to run custom commands with a shortcut<br />
+<img src="https://gdeiana.github.io/assets/images/Stata_vscode/Coderun.PNG" alt="" /></p>
+  </li>
+</ol>
+
+<h3 id="download-and-edit-custom-scripts">Download and edit custom scripts</h3>
+<h4 id="download-scripts">Download Scripts</h4>
+<p>Two custom scripts are needed to run Stata from another code editor.
+Download the scripts here: <a href="https://huebler.blogspot.com/2008/04/stata.html">https://huebler.blogspot.com/2008/04/stata.html</a>.</p>
+
+<p>If you are using Stata 15 or later, then <em>rundo51.zip</em> and <em>rundolines51.zip</em> should work. Otherwise if you are using an earlier version, download <em>Rundo41.zip</em> and <em>Rundolines41.zip</em>.</p>
+
+<p>Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code.</p>
+
+<h4 id="edit-scripts">Edit Scripts</h4>
+<p>In both <em>rundo</em> and <em>rundolines</em> zipped folders you will find a config file:
+<img src="https://gdeiana.github.io/assets/images/Stata_vscode/Config1.PNG" alt="" /></p>
+
+<p>Open the config file and edit the following lines:</p>
+<ul>
+  <li><em>statapath = “[Path to your stata Executable]”</em>]<br />
+Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”*</li>
+  <li><em>statawin = “[Stata Version]”</em><br />
+Example: <em>statawin = “Stata/SE 15.0”</em></li>
+</ul>
+
+<p>Then save the config files and close them.</p>
+
+<h3 id="edit-vs-code-settings">Edit VS Code settings</h3>
+<p>To open the VS Code settings use: <em>CTRL + SHIFT + P</em>.
+In the dialog window that opens, look for <em>Preferences: Open Settings (JSON)</em></p>
+
+<p>A new window should open with a json file (a text file between two curly brackets).</p>
+
+<p>Paste the following line of code <strong>between the two curly brackets</strong>:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"code-runner.executorMapByFileExtension"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">".do"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Path to rundo.exe]"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="nl">"code-runner.customCommand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Path to rundolines.exe]"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"stataRun.stataPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Path to Stata.exe]"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"stataRun.whichApp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stataMP"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"stataRun.pasteSpeed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="w">
+</span><span class="nl">"stataRun.advancePosition"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+<p>Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files.<br />
+Note that the path don’t work if there are any spaces and require the use of double slashes to be readable.</p>
+
+<p>Here you can find an example for the path where I have saved rundo.exe:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"code-runner.executorMapByFileExtension"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">".do"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:</span><span class="se">\\</span><span class="s2">PROGRA~2</span><span class="se">\\</span><span class="s2">Stata13</span><span class="se">\\</span><span class="s2">ado</span><span class="se">\\</span><span class="s2">personal</span><span class="se">\\</span><span class="s2">rundo41</span><span class="se">\\</span><span class="s2">rundo.exe"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="add-shortcuts-to-vs-code-to-run-stata">Add Shortcuts to VS Code to run Stata</h3>
+<p>In Stata’s do file editor we are used to using the <em>CTRL + D</em> shortcut a lot.<br />
+Fortunately there is an (almost) identical solution here in VS Code.</p>
+
+<p>As for the previous step, we need to open the command bar in VS Code by clicking <em>CTRL + SHIFT + P</em>.<br />
+Then we need to look for <em>Preferences: Open Keyboard Shortcuts</em>.
+Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut <em>CTRL + D</em>.<br />
+Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to <em>CTRL + SHIFT + D</em>.</p>
+
+<p>Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console.</p>
+
+<p>If stata is not opened when using either command, then VS Code will simply open a new instance of Stata.</p>
+
+<p>Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code.</p>
+
+<h2 id="credits">Credits</h2>
+<ul>
+  <li><em>Code Runner</em> author Jun Han: <a href="https://github.com/formulahendry">https://github.com/formulahendry</a></li>
+  <li><em>Stata Enhanced</em> author Kyle Barron: <a href="https://marketplace.visualstudio.com/publishers/kylebarron">https://marketplace.visualstudio.com/publishers/kylebarron</a></li>
+  <li><em>Rundo</em> and <em>Rundolines</em> author Friedrich Huebler: <a href="https://huebler.blogspot.com/">https://huebler.blogspot.com/</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#software" class="page__taxonomy-item p-category" rel="tag">Software</a><span class="sep">, </span>
+    
+      <a href="/tags/#stata" class="page__taxonomy-item p-category" rel="tag">Stata</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#economics" class="page__taxonomy-item p-category" rel="tag">Economics</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-01-15">January 15, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Run+Stata+in+VS+Code%20http%3A%2F%2Flocalhost%3A4000%2Feconomics%2Fstata-vscode%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Feconomics%2Fstata-vscode%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Feconomics%2Fstata-vscode%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You May Also Enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+        
+          
+            <li><a href="https://twitter.com/guido_deiana?lang=en" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> guido_deiana</a></li>
+          
+        
+          
+            <li><a href="https://github.com/gdeiana" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> gdeiana</a></li>
+          
+        
+          
+            <li><a href="mailto:deianaguido@gmail.com" rel="nofollow noopener noreferrer"><i class="fa fa-envelope" aria-hidden="true"></i> deianaguido@gmail.com</a></li>
+          
+        
+      
+  
+      
+    </ul>
+  </div>
+    
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
