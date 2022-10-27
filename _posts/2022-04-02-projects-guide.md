@@ -1,5 +1,5 @@
 ---
-title: "Empirical Projects Guidelines"
+title: "Personal Empirical Project Setup"
 last_modified_at: today
 toc: true
 toc_sticky: true

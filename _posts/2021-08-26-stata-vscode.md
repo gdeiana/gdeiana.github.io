@@ -13,14 +13,6 @@ tags:
   - Stata
 
 ---
-
-If you are fed up with Stata's do file editor and want something lighter, smarter and just better you are in the right place.
-
-**Disclaimer**  
-This guide is heavily based on a guide I found online a few months ago.  
-As I was not able to find it again I decided to rewrite here all the passages so that this could be useful for anyone who needed it.  
-If the original author finds this guide, please contact me! I will be more than happy to include the relevant references to your blog post.
-
 ## Why running Stata in Visual Studio Code
 Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.  
 However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.
