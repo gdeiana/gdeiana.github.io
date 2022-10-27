@@ -58,7 +58,7 @@ plugins:
 
 author:
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "MSc in Economics graduate. Incoming PhD student at NYU (Fall 2022). Currently working as an RA at Bocconi University in Milan."
+  bio    : "PhD student in Economics at NYU"
   links:
     - label: "@guido_deiana"
       icon: "fab fa-fw fa-twitter-square"
@@ -72,9 +72,6 @@ author:
     - label: "deianaguido@gmail.com"
       icon: "fa fa-envelope"
       url: "mailto:deianaguido@gmail.com"
-    - label: 8a.nu
-      icon: "fa fa-mountain"
-      url: "https://www.8a.nu/user/guido-deiana/"
     #- label: "CV"
     #  icon: " fa fa-address-card"
     #  url: "https://gdeiana.github.io/assets/docs/Guido_Deiana_CV.pdf"
