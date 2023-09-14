@@ -4,7 +4,7 @@ permalink: /research/
 layout: splash
 ---
 
-### No More Free Choice: An Empirical Analysis of Default Options in the Amazon’s Online Marketplace
+### [No More Free Choice: An Empirical Analysis of Default Options in the Amazon’s Online Marketplace]()
 *Guido Deiana*
 *2022*
 
