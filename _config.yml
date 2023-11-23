@@ -119,3 +119,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+google_analytics:
+  measurement_id: G-E0B9X0KHF7

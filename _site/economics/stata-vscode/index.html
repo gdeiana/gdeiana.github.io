@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Run Stata in VS Code - Guido Deiana</title>
-<meta name="description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
+<meta name="description" content="Why running Stata in Visual Studio Code Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code. However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.  Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon:    Text and command autocomplete   Better syntax highlight   Single environment for all my codes (Stata, python, R and even LaTex)   Seamless integration with Git   Snippets   How to Install and run Stata from VSCode  Install VS code Look for the latest VS Code version available here: https://code.visualstudio.com Click on Download and install VS Code  Install Plug-Ins To install extensions in VS Code click on the icon indicated below.   Two plugins are necessary to run Stata in VS Code:         Stata Enhanced Allows VS Code to recognize files .do and assigns them a familiar syntax highlighting            Code Runner Allows VS Code to run custom commands with a shortcut       Download and edit custom scripts Download Scripts Two custom scripts are needed to run Stata from another code editor. Download the scripts here: https://huebler.blogspot.com/2008/04/stata.html.  If you are using Stata 15 or later, then rundo51.zip and rundolines51.zip should work. Otherwise if you are using an earlier version, download Rundo41.zip and Rundolines41.zip.  Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code.  Edit Scripts In both rundo and rundolines zipped folders you will find a config file:   Open the config file and edit the following lines:    statapath = “[Path to your stata Executable]”] Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”*   statawin = “[Stata Version]” Example: statawin = “Stata/SE 15.0”   Then save the config files and close them.  Edit VS Code settings To open the VS Code settings use: CTRL + SHIFT + P. In the dialog window that opens, look for Preferences: Open Settings (JSON)  A new window should open with a json file (a text file between two curly brackets).  Paste the following line of code between the two curly brackets: &quot;code-runner.executorMapByFileExtension&quot;: {     &quot;.do&quot;: &quot;[Path to rundo.exe]&quot; }, &quot;code-runner.customCommand&quot;: &quot;[Path to rundolines.exe]&quot;, &quot;stataRun.stataPath&quot;: &quot;[Path to Stata.exe]&quot;, &quot;stataRun.whichApp&quot;: &quot;stataMP&quot;, &quot;stataRun.pasteSpeed&quot;: 1, &quot;stataRun.advancePosition&quot;: false,  Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files. Note that the path don’t work if there are any spaces and require the use of double slashes to be readable.  Here you can find an example for the path where I have saved rundo.exe: &quot;code-runner.executorMapByFileExtension&quot;: {     &quot;.do&quot;: &quot;C:\\PROGRA~2\\Stata13\\ado\\personal\\rundo41\\rundo.exe&quot; },   Add Shortcuts to VS Code to run Stata In Stata’s do file editor we are used to using the CTRL + D shortcut a lot. Fortunately there is an (almost) identical solution here in VS Code.  As for the previous step, we need to open the command bar in VS Code by clicking CTRL + SHIFT + P. Then we need to look for Preferences: Open Keyboard Shortcuts. Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut CTRL + D. Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to CTRL + SHIFT + D.  Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console.  If stata is not opened when using either command, then VS Code will simply open a new instance of Stata.  Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code.  Credits    Code Runner author Jun Han: https://github.com/formulahendry   Stata Enhanced author Kyle Barron: https://marketplace.visualstudio.com/publishers/kylebarron   Rundo and Rundolines author Friedrich Huebler: https://huebler.blogspot.com/">
 
 
 
@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://localhost:4000/economics/stata-vscode/">
 
 
-  <meta property="og:description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
+  <meta property="og:description" content="Why running Stata in Visual Studio Code Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code. However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.  Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon:    Text and command autocomplete   Better syntax highlight   Single environment for all my codes (Stata, python, R and even LaTex)   Seamless integration with Git   Snippets   How to Install and run Stata from VSCode  Install VS code Look for the latest VS Code version available here: https://code.visualstudio.com Click on Download and install VS Code  Install Plug-Ins To install extensions in VS Code click on the icon indicated below.   Two plugins are necessary to run Stata in VS Code:         Stata Enhanced Allows VS Code to recognize files .do and assigns them a familiar syntax highlighting            Code Runner Allows VS Code to run custom commands with a shortcut       Download and edit custom scripts Download Scripts Two custom scripts are needed to run Stata from another code editor. Download the scripts here: https://huebler.blogspot.com/2008/04/stata.html.  If you are using Stata 15 or later, then rundo51.zip and rundolines51.zip should work. Otherwise if you are using an earlier version, download Rundo41.zip and Rundolines41.zip.  Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code.  Edit Scripts In both rundo and rundolines zipped folders you will find a config file:   Open the config file and edit the following lines:    statapath = “[Path to your stata Executable]”] Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”*   statawin = “[Stata Version]” Example: statawin = “Stata/SE 15.0”   Then save the config files and close them.  Edit VS Code settings To open the VS Code settings use: CTRL + SHIFT + P. In the dialog window that opens, look for Preferences: Open Settings (JSON)  A new window should open with a json file (a text file between two curly brackets).  Paste the following line of code between the two curly brackets: &quot;code-runner.executorMapByFileExtension&quot;: {     &quot;.do&quot;: &quot;[Path to rundo.exe]&quot; }, &quot;code-runner.customCommand&quot;: &quot;[Path to rundolines.exe]&quot;, &quot;stataRun.stataPath&quot;: &quot;[Path to Stata.exe]&quot;, &quot;stataRun.whichApp&quot;: &quot;stataMP&quot;, &quot;stataRun.pasteSpeed&quot;: 1, &quot;stataRun.advancePosition&quot;: false,  Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files. Note that the path don’t work if there are any spaces and require the use of double slashes to be readable.  Here you can find an example for the path where I have saved rundo.exe: &quot;code-runner.executorMapByFileExtension&quot;: {     &quot;.do&quot;: &quot;C:\\PROGRA~2\\Stata13\\ado\\personal\\rundo41\\rundo.exe&quot; },   Add Shortcuts to VS Code to run Stata In Stata’s do file editor we are used to using the CTRL + D shortcut a lot. Fortunately there is an (almost) identical solution here in VS Code.  As for the previous step, we need to open the command bar in VS Code by clicking CTRL + SHIFT + P. Then we need to look for Preferences: Open Keyboard Shortcuts. Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut CTRL + D. Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to CTRL + SHIFT + D.  Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console.  If stata is not opened when using either command, then VS Code will simply open a new instance of Stata.  Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code.  Credits    Code Runner author Jun Han: https://github.com/formulahendry   Stata Enhanced author Kyle Barron: https://marketplace.visualstudio.com/publishers/kylebarron   Rundo and Rundolines author Friedrich Huebler: https://huebler.blogspot.com/">
 
 
 
@@ -29,11 +29,11 @@
 
 
 
-  <meta property="article:published_time" content="2021-08-26T00:00:00+02:00">
+  <meta property="article:published_time" content="2021-08-26T00:00:00-04:00">
 
 
 
-  <meta property="article:modified_time" content="2022-01-15T18:19:00+01:00">
+  <meta property="article:modified_time" content="2023-11-22T21:07:45-05:00">
 
 
 
@@ -150,9 +150,9 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Run Stata in VS Code">
-    <meta itemprop="description" content="If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.">
-    <meta itemprop="datePublished" content="2021-08-26T00:00:00+02:00">
-    <meta itemprop="dateModified" content="2022-01-15T18:18:58+01:00">
+    <meta itemprop="description" content="Why running Stata in Visual Studio CodeEconomists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon:  Text and command autocomplete  Better syntax highlight  Single environment for all my codes (Stata, python, R and even LaTex)  Seamless integration with Git  SnippetsHow to Install and run Stata from VSCodeInstall VS codeLook for the latest VS Code version available here: https://code.visualstudio.comClick on Download and install VS CodeInstall Plug-InsTo install extensions in VS Code click on the icon indicated below.Two plugins are necessary to run Stata in VS Code:      Stata EnhancedAllows VS Code to recognize files .do and assigns them a familiar syntax highlighting        Code RunnerAllows VS Code to run custom commands with a shortcut  Download and edit custom scriptsDownload ScriptsTwo custom scripts are needed to run Stata from another code editor.Download the scripts here: https://huebler.blogspot.com/2008/04/stata.html.If you are using Stata 15 or later, then rundo51.zip and rundolines51.zip should work. Otherwise if you are using an earlier version, download Rundo41.zip and Rundolines41.zip.Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code.Edit ScriptsIn both rundo and rundolines zipped folders you will find a config file:Open the config file and edit the following lines:  statapath = “[Path to your stata Executable]”]Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”*  statawin = “[Stata Version]”Example: statawin = “Stata/SE 15.0”Then save the config files and close them.Edit VS Code settingsTo open the VS Code settings use: CTRL + SHIFT + P.In the dialog window that opens, look for Preferences: Open Settings (JSON)A new window should open with a json file (a text file between two curly brackets).Paste the following line of code between the two curly brackets:&quot;code-runner.executorMapByFileExtension&quot;: {    &quot;.do&quot;: &quot;[Path to rundo.exe]&quot;},&quot;code-runner.customCommand&quot;: &quot;[Path to rundolines.exe]&quot;,&quot;stataRun.stataPath&quot;: &quot;[Path to Stata.exe]&quot;,&quot;stataRun.whichApp&quot;: &quot;stataMP&quot;,&quot;stataRun.pasteSpeed&quot;: 1,&quot;stataRun.advancePosition&quot;: false,Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files.Note that the path don’t work if there are any spaces and require the use of double slashes to be readable.Here you can find an example for the path where I have saved rundo.exe:&quot;code-runner.executorMapByFileExtension&quot;: {    &quot;.do&quot;: &quot;C:\\PROGRA~2\\Stata13\\ado\\personal\\rundo41\\rundo.exe&quot;},Add Shortcuts to VS Code to run StataIn Stata’s do file editor we are used to using the CTRL + D shortcut a lot.Fortunately there is an (almost) identical solution here in VS Code.As for the previous step, we need to open the command bar in VS Code by clicking CTRL + SHIFT + P.Then we need to look for Preferences: Open Keyboard Shortcuts.Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut CTRL + D.Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to CTRL + SHIFT + D.Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console.If stata is not opened when using either command, then VS Code will simply open a new instance of Stata.Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code.Credits  Code Runner author Jun Han: https://github.com/formulahendry  Stata Enhanced author Kyle Barron: https://marketplace.visualstudio.com/publishers/kylebarron  Rundo and Rundolines author Friedrich Huebler: https://huebler.blogspot.com/">
+    <meta itemprop="datePublished" content="2021-08-26T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2023-11-22T21:07:44-05:00">
 
     <div class="page__inner-wrap">
       
@@ -195,14 +195,7 @@
             </nav>
           </aside>
         
-        <p>If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.</p>
-
-<p><strong>Disclaimer</strong><br />
-This guide is heavily based on a guide I found online a few months ago.<br />
-As I was not able to find it again I decided to rewrite here all the passages so that this could be useful for anyone who needed it.<br />
-If the original author finds this guide, please contact me! I will be more than happy to include the relevant references to your blog post.</p>
-
-<h2 id="why-running-stata-in-visual-studio-code">Why running Stata in Visual Studio Code</h2>
+        <h2 id="why-running-stata-in-visual-studio-code">Why running Stata in Visual Studio Code</h2>
 <p>Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.<br />
 However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.</p>
 
@@ -351,7 +344,7 @@ Then we can look for “Run Code”. This is the command that runs the whole dof
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-01-15">January 15, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-11-22">November 22, 2023</time></p>
 
       </footer>
 
@@ -367,6 +360,16 @@ Then we can look for “Run Code”. This is the command that runs the whole dof
 
 
       
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/economics/projects-guide/" class="pagination--pager" title="Personal Empirical Project Setup
+">Next</a>
+    
+  </nav>
+
     </div>
 
     
@@ -379,9 +382,48 @@ Then we can look for “Run Code”. This is the command that runs the whole dof
       <div class="grid__wrapper">
         
           
-            
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/economics/projects-guide/" rel="permalink">Personal Empirical Project Setup
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is a very short guide on how to setup a project involving codes and data for either economic analysis (industry) or research (academia).
+This fully draw...</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
+  
   
 </div>
     </div>
@@ -419,7 +461,7 @@ Then we can look for “Run Code”. This is the command that runs the whole dof
           
         
           
-            <li><a href="mailto:deianaguido@gmail.com" rel="nofollow noopener noreferrer"><i class="fa fa-envelope" aria-hidden="true"></i> deianaguido@gmail.com</a></li>
+            <li><a href="mailto:guido.deiana@nyu.edu" rel="nofollow noopener noreferrer"><i class="fa fa-envelope" aria-hidden="true"></i> guido.deiana@nyu.edu</a></li>
           
         
       

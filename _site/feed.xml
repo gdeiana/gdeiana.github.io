@@ -1,11 +1,245 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-15T18:18:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guido Deiana</title><subtitle>My personal webpage, including Economics and Data Science pages. Personal blog posts, pieces of code and other unrelated stuff.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;MSc in Economics graduate. Currently working as an RA at Bocconi University in Milan.&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;deianaguido@gmail.com&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:deianaguido@gmail.com&quot;}]}</name></author><entry><title type="html">Run Stata in VS Code</title><link href="http://localhost:4000/economics/stata-vscode/" rel="alternate" type="text/html" title="Run Stata in VS Code" /><published>2021-08-26T00:00:00+02:00</published><updated>2022-01-15T18:19:06+01:00</updated><id>http://localhost:4000/economics/stata-vscode</id><content type="html" xml:base="http://localhost:4000/economics/stata-vscode/">&lt;p&gt;If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-22T21:07:41-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Guido Deiana</title><subtitle>My personal webpage, including Economics and Data Science pages. Personal blog posts, pieces of code and other unrelated stuff.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;PhD student in Economics at NYU&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;@guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;linkedin/guido-deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-linkedin&quot;, &quot;url&quot;=&gt;&quot;https://www.linkedin.com/in/guido-deiana/&quot;}, {&quot;label&quot;=&gt;&quot;guido.deiana@nyu.edu&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:guido.deiana@nyu.edu&quot;}]}</name></author><entry><title type="html">Personal Empirical Project Setup</title><link href="http://localhost:4000/economics/projects-guide/" rel="alternate" type="text/html" title="Personal Empirical Project Setup" /><published>2022-04-02T00:00:00-04:00</published><updated>2023-11-22T21:07:46-05:00</updated><id>http://localhost:4000/economics/projects-guide</id><content type="html" xml:base="http://localhost:4000/economics/projects-guide/">&lt;p&gt;This is a very short guide on how to setup a project involving codes and data for either economic analysis (industry) or research (academia).
+This fully draws from my limited experience working in different projects in government organizations, private companies and academia.
+The code is still in full development, please feel free to contact me if you disagree with the method shown here or if you have any suggestions!&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;br /&gt;
-This guide is heavily based on a guide I found online a few months ago.&lt;br /&gt;
-As I was not able to find it again I decided to rewrite here all the passages so that this could be useful for anyone who needed it.&lt;br /&gt;
-If the original author finds this guide, please contact me! I will be more than happy to include the relevant references to your blog post.&lt;/p&gt;
+&lt;p&gt;The guide is divided in the following sections: in section 1 we explain the general folder structure for single tasks and for simple work. In section 2 we give some very basic information on how to write clean and effective codes. In folder 2 we explain a more complex structure, for more advanced projects which require version control. In section 3 we introduce git and github as tools for versioning codes and drafts. In section 4 we explain some quality of life tools, such
+as vscode, or libraries to speed up processes (gtools, parallel computing etc).&lt;/p&gt;
 
-&lt;h2 id=&quot;why-running-stata-in-visual-studio-code&quot;&gt;Why running Stata in Visual Studio Code&lt;/h2&gt;
+&lt;h2 id=&quot;simple-folder-structure&quot;&gt;Simple Folder Structure:&lt;/h2&gt;
+&lt;p&gt;When working in a simple project, which generally only requires minimal version control and limited use of advanced tools such as cluster servers, I find this type of structure to be the most useful.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├───01 Load
+│   └───Load dataset 1
+│       ├───_aux
+│       ├───_raw
+│       ├───_temp
+│       ├───dta
+│       └─ 00 run all.do
+│       └─ 01 Load first dataset.do
+│       └─ 02 &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;first datset.do
+├───02 Clean
+│   └───Clean dataset 1
+│       ├───_aux
+│       ├───_temp
+│       ├───dta
+│       └─ 00 run all.do
+│       └─ 01 apply mappings.do
+│       └─ 02 clean.do
+│       └─ 03 export.do
+└───03 Analysis
+│   └───descriptive_stats
+│       ├───_aux
+│       ├───_temp
+│       ├───out
+│       └─ 00 run all.do
+│       └─ 01 create descriptives.do
+│       └─ 02 format descriptives.do
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we take the example of a dataset (dataset 1) being loaded, cleaned and used as part of an analysis.&lt;/p&gt;
+
+&lt;p&gt;The first task loads the dataset, it can be either importing a bunch of excel files, scraping a dataset or something similar.&lt;/p&gt;
+
+&lt;p&gt;Generally the rawest possible files (the ones generally received from an external source) are located in the “_raw” folder. The files are then cleaned in the code and exported in the “dta” folder.&lt;/p&gt;
+
+&lt;p&gt;The “_aux” and “_temp” folders  serve two specific purposes: in “_aux” we generally include all the mapping files. In general we want to avoid our code to have code blocks like this:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;newname&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;oldname&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;newname1&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;oldname1&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;newname2&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;oldname2&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Because this approach is extremely prone to error and it makes the codes difficult to navigate.
+Instead, it is better to load an external mapping (aux) file, that converts the old values in the new ones. It can be an excel file, a dta or any format that is easy to navigate and that can be manually adjusted if needed. Generally we like to refer to aux files for any manual mappings/hard coded values, so that they are easy to refer to and to inspect from auditors or data editors.&lt;/p&gt;
+
+&lt;p&gt;An example of a mapping file in excel would be: &lt;br /&gt;
+&lt;img src=&quot;https://gdeiana.github.io/assets/images/projects_guide/aux-file.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, the “_temp” folder is self explanatory, as it should only contain temporary files, these are the files that are created by an intermediate dofile and are used in a following dofile. They are not final outputs of the folder and therefore should not be in the “dta” folder&lt;/p&gt;
+
+&lt;p&gt;So in summary the different folder namings represent:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;_raw&lt;/em&gt;: raw files from external source&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;_aux&lt;/em&gt;: mapping files&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;_temp&lt;/em&gt;: temporary outputs&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;dta&lt;/em&gt;: loaded datasets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The “Clean” folder should NOT contain a &lt;em&gt;_raw&lt;/em&gt; subfolder, when possible and should simply take the loaded datasets from the “Load” folder, pass them through some cleaning codes and output the resulting datasets.&lt;br /&gt;
+Please: DO NOT COPY PASTE FILES MANUALLY! If a dataset is created in the “Load” folder, it should stay there, then the “Clean” codes can take it from the “Load/dta” folder and output it in the “Clean/dta” folder.
+Manually moving files creates confusion as to where these files have been produced.&lt;/p&gt;
+
+&lt;p&gt;Finally the Analysis folder should simply take the loaded and cleaned files from “Clean/dta” and output the results in the “Analysis/out” subfolder (or in the draft folder if it is located somewhere else).&lt;br /&gt;
+As usual, do not manually move files, or worse, do not rename tables from when they come out of the codes to when they are loaded in the draft. as that creates confusion on which codes create which tables.&lt;/p&gt;
+
+&lt;p&gt;Generally it may happen that tables created from stata or python are not well formatted. A solution would be to have a &lt;em&gt;out/_formatted&lt;/em&gt; folder, where the tables are manually formatted. Please remember to keep the same table names and to reformat tables whenever the code is rerun. Avoid manually formatting whenever possible.&lt;/p&gt;
+
+&lt;h2 id=&quot;general-code-guidelines&quot;&gt;General Code Guidelines&lt;/h2&gt;
+&lt;p&gt;Whenever writing a new piece of code, a few key points should be respected:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Keep single codes short and limited to 1 or 2 tasks&lt;br /&gt;
+Writing 5 100-lines pieces of code that are limited to a few tasks, is much better than a single piece of code of 500+ lines that does everything.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Put an appropriate header with description of the work&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;************************************&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;************************************&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Setup&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;libraries&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;capture&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;clear&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paths&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$main/01 Load/&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;clean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$main/02 Clean/&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;analysis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$main/03 Analysis/&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;raw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$load/_raw/&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$load/_temp/&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$load/dta/&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Separate code sections&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;************************************&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Load&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;************************************&lt;/span&gt;
+   
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Use&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Nestle&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clear&lt;/span&gt;
+   
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Merge&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;products&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mappings&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nogen&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$temp/file1_loaded_merged.dta&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacde&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Indent code&lt;br /&gt;
+Python requires scode to be indented, while other programs do not. Always indenting inside loops, if/else conditions and so on is a good practice even when indenting is not required.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Short and effective comments (not redundant)&lt;br /&gt;
+What you should not do:&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;I aleady know the datasets are called data1 and data2 and I can read that you are merging them, this comment is useless.&lt;/p&gt;
+
+    &lt;p&gt;What you should do:&lt;/p&gt;
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nestle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataset&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Simple code is always always better than complex clever code (unless there are evident speed advantages) &lt;br /&gt;
+Whenever I see a double nested loop I generally question wether it is useful or not. Always have a preference for clear, easy to read code than for complex nested loops, which are difficult to debug and to interpret.&lt;/p&gt;
+
+    &lt;p&gt;Sometimes complex code sometimes is required. In that case, say WHY you are doing certain things, instead of repeating WHAT you are doing. (the WHAT is readable from the code, the WHY is not!)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;more-complex-folder-structure&quot;&gt;More Complex Folder Structure:&lt;/h2&gt;
+&lt;p&gt;There are cases in which you might want to separate codes and data. I am still new to this so this might not be the best guide for this, so if you find anything that could improve this please let me know.&lt;/p&gt;
+
+&lt;p&gt;Version control is an extremely useful tool, but it might work best when codes and data are separated, as we want to only track changes in codes and not in data.&lt;/p&gt;
+
+&lt;p&gt;The following structure is currently used in one of the projects I am working on, and I am currently testing it, so this might change in the future.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├───Codes
+│   ├───01 Load
+│   │   └───load dataset 1
+│   ├───02 Clean
+│   │   └───apply mappings
+│   └───03 Analysis
+│       └───descritptive stats
+├───Data
+│   ├───_temp
+│   ├───01 Raw
+│   │   └───dataset_nestle
+│   ├───02 Mappings
+│   │   └───mappings_nestle
+│   └───03 Consolidated
+│   │   └───dataset1
+└───Outputs
+    └───descriptive stats
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The advantage of this setting is that we can keep the codes and data separated.
+The clear disadvantage is that it is really easy to lose track of which codes creates what!&lt;br /&gt;
+Generally a good rule of thumb is to keep the same names between the codes and data and to keep in a README.md file in &lt;em&gt;main&lt;/em&gt; the order in which files should be run and what is the input and output of each folder.&lt;/p&gt;
+
+&lt;h2 id=&quot;version-control-git-and-github&quot;&gt;Version Control: Git and Github&lt;/h2&gt;
+&lt;p&gt;Git is an extremely powerful software developed by Linus Tovalds (the Linux creator) which has become the gold standard for version control for developers.&lt;br /&gt;
+Version control was not something done often by economists, but it is starting to grow as the need for replicable results grows.&lt;/p&gt;
+
+&lt;p&gt;Github is just a hosting platform for git-controlled software.&lt;/p&gt;
+
+&lt;p&gt;The idea behind version control is that we want to keep track of the results of our code at any point in time, and be able to replicate results that weere produced months or years earlier.&lt;/p&gt;
+
+&lt;p&gt;Another advantage is not having to create seven different versions of the same code.&lt;/p&gt;
+
+&lt;p&gt;A few git commands are reported here, full git guide coming soon:
+These are basically all the commands you should ever know&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Add files to the git controlled environment&lt;/span&gt;
+git add &lt;span class=&quot;s2&quot;&gt;&quot;filename&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Add all files and folders&lt;/span&gt;
+git add &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Create a snapshot of the code with the following title&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Push the code to the online repository&lt;/span&gt;
+git push
+
+&lt;span class=&quot;c&quot;&gt;# Pull code from online repository&lt;/span&gt;
+git pull
+
+&lt;span class=&quot;c&quot;&gt;# Branch code in a separate stream&lt;/span&gt;
+git branch branch1
+
+&lt;span class=&quot;c&quot;&gt;# move among different branches&lt;/span&gt;
+git checkout brach1
+
+&lt;span class=&quot;c&quot;&gt;# come back to the &quot;master&quot; branch&lt;/span&gt;
+git checkout master
+
+&lt;span class=&quot;c&quot;&gt;# merge the current branch with branch1&lt;/span&gt;
+git merge branch1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;quality-of-life-tools&quot;&gt;Quality of life tools&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;vscode
+    &lt;ul&gt;
+      &lt;li&gt;See guide for using vscode and stata here: &lt;a href=&quot;https://gdeiana.github.io/economics/stata-vscode/&quot;&gt;gdeiana.github.io/economics/stata-vscode/&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stata libraries:
+    &lt;ul&gt;
+      &lt;li&gt;gtools&lt;/li&gt;
+      &lt;li&gt;reghdfe&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;python libraries:
+    &lt;ul&gt;
+      &lt;li&gt;multiprocessing for running processes in parallel,&lt;br /&gt;
+guide here:&lt;br /&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=fKl2JW_qrso&amp;amp;t=1632s&amp;amp;ab_channel=CoreySchafer&quot;&gt;https://www.youtube.com/watch?v=fKl2JW_qrso&amp;amp;t=1632s&amp;amp;ab_channel=CoreySchafer&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;R tools:
+    &lt;ul&gt;
+      &lt;li&gt;multiprocessing: using foreach and %dopar%&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;PhD student in Economics at NYU&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;@guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;linkedin/guido-deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-linkedin&quot;, &quot;url&quot;=&gt;&quot;https://www.linkedin.com/in/guido-deiana/&quot;}, {&quot;label&quot;=&gt;&quot;guido.deiana@nyu.edu&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:guido.deiana@nyu.edu&quot;}]}</name></author><category term="Economics" /><category term="Software" /><category term="Project" /><category term="Data" /><summary type="html">This is a very short guide on how to setup a project involving codes and data for either economic analysis (industry) or research (academia). This fully draws from my limited experience working in different projects in government organizations, private companies and academia. The code is still in full development, please feel free to contact me if you disagree with the method shown here or if you have any suggestions! The guide is divided in the following sections: in section 1 we explain the general folder structure for single tasks and for simple work. In section 2 we give some very basic information on how to write clean and effective codes. In folder 2 we explain a more complex structure, for more advanced projects which require version control. In section 3 we introduce git and github as tools for versioning codes and drafts. In section 4 we explain some quality of life tools, such as vscode, or libraries to speed up processes (gtools, parallel computing etc). Simple Folder Structure: When working in a simple project, which generally only requires minimal version control and limited use of advanced tools such as cluster servers, I find this type of structure to be the most useful. ├───01 Load │ └───Load dataset 1 │ ├───_aux │ ├───_raw │ ├───_temp │ ├───dta │ └─ 00 run all.do │ └─ 01 Load first dataset.do │ └─ 02 export first datset.do ├───02 Clean │ └───Clean dataset 1 │ ├───_aux │ ├───_temp │ ├───dta │ └─ 00 run all.do │ └─ 01 apply mappings.do │ └─ 02 clean.do │ └─ 03 export.do └───03 Analysis │ └───descriptive_stats │ ├───_aux │ ├───_temp │ ├───out │ └─ 00 run all.do │ └─ 01 create descriptives.do │ └─ 02 format descriptives.do Here we take the example of a dataset (dataset 1) being loaded, cleaned and used as part of an analysis. The first task loads the dataset, it can be either importing a bunch of excel files, scraping a dataset or something similar. Generally the rawest possible files (the ones generally received from an external source) are located in the “_raw” folder. The files are then cleaned in the code and exported in the “dta” folder. The “_aux” and “_temp” folders serve two specific purposes: in “_aux” we generally include all the mapping files. In general we want to avoid our code to have code blocks like this: replace x = &quot;newname&quot; if x == &quot;oldname&quot; replace x = &quot;newname1&quot; if x == &quot;oldname1&quot; replace x = &quot;newname2&quot; if x == &quot;oldname2&quot; ... Because this approach is extremely prone to error and it makes the codes difficult to navigate. Instead, it is better to load an external mapping (aux) file, that converts the old values in the new ones. It can be an excel file, a dta or any format that is easy to navigate and that can be manually adjusted if needed. Generally we like to refer to aux files for any manual mappings/hard coded values, so that they are easy to refer to and to inspect from auditors or data editors. An example of a mapping file in excel would be: Finally, the “_temp” folder is self explanatory, as it should only contain temporary files, these are the files that are created by an intermediate dofile and are used in a following dofile. They are not final outputs of the folder and therefore should not be in the “dta” folder So in summary the different folder namings represent: _raw: raw files from external source _aux: mapping files _temp: temporary outputs dta: loaded datasets The “Clean” folder should NOT contain a _raw subfolder, when possible and should simply take the loaded datasets from the “Load” folder, pass them through some cleaning codes and output the resulting datasets. Please: DO NOT COPY PASTE FILES MANUALLY! If a dataset is created in the “Load” folder, it should stay there, then the “Clean” codes can take it from the “Load/dta” folder and output it in the “Clean/dta” folder. Manually moving files creates confusion as to where these files have been produced. Finally the Analysis folder should simply take the loaded and cleaned files from “Clean/dta” and output the results in the “Analysis/out” subfolder (or in the draft folder if it is located somewhere else). As usual, do not manually move files, or worse, do not rename tables from when they come out of the codes to when they are loaded in the draft. as that creates confusion on which codes create which tables. Generally it may happen that tables created from stata or python are not well formatted. A solution would be to have a out/_formatted folder, where the tables are manually formatted. Please remember to keep the same table names and to reformat tables whenever the code is rerun. Avoid manually formatting whenever possible. General Code Guidelines Whenever writing a new piece of code, a few key points should be respected: Keep single codes short and limited to 1 or 2 tasks Writing 5 100-lines pieces of code that are limited to a few tasks, is much better than a single piece of code of 500+ lines that does everything. Put an appropriate header with description of the work ************************************ * Name: * Date: * Description: * Input: * Output: ************************************ * Setup (or import libraries if in python) capture log close clear all * paths main = &quot;&quot; load = &quot;$main/01 Load/&quot; clean = &quot;$main/02 Clean/&quot; analysis = &quot;$main/03 Analysis/&quot; raw = &quot;$load/_raw/&quot; temp = &quot;$load/_temp/&quot; dta = &quot;$load/dta/&quot; ... Separate code sections ************************************ * Load and merge dataset ************************************ * Use file1 from Nestle use file1.dta, clear * Merge with products mappings and save merge using $aux/file2, assert(3) nogen save &quot;$temp/file1_loaded_merged.dta&quot;, replacde Indent code Python requires scode to be indented, while other programs do not. Always indenting inside loops, if/else conditions and so on is a good practice even when indenting is not required. Short and effective comments (not redundant) What you should not do: * merge data1 with data2 merge m:1 using data2 I aleady know the datasets are called data1 and data2 and I can read that you are merging them, this comment is useless. What you should do: * merge nestle dataset with product names merge m:1 using data2 Simple code is always always better than complex clever code (unless there are evident speed advantages) Whenever I see a double nested loop I generally question wether it is useful or not. Always have a preference for clear, easy to read code than for complex nested loops, which are difficult to debug and to interpret. Sometimes complex code sometimes is required. In that case, say WHY you are doing certain things, instead of repeating WHAT you are doing. (the WHAT is readable from the code, the WHY is not!) More Complex Folder Structure: There are cases in which you might want to separate codes and data. I am still new to this so this might not be the best guide for this, so if you find anything that could improve this please let me know. Version control is an extremely useful tool, but it might work best when codes and data are separated, as we want to only track changes in codes and not in data. The following structure is currently used in one of the projects I am working on, and I am currently testing it, so this might change in the future. ├───Codes │ ├───01 Load │ │ └───load dataset 1 │ ├───02 Clean │ │ └───apply mappings │ └───03 Analysis │ └───descritptive stats ├───Data │ ├───_temp │ ├───01 Raw │ │ └───dataset_nestle │ ├───02 Mappings │ │ └───mappings_nestle │ └───03 Consolidated │ │ └───dataset1 └───Outputs └───descriptive stats The advantage of this setting is that we can keep the codes and data separated. The clear disadvantage is that it is really easy to lose track of which codes creates what! Generally a good rule of thumb is to keep the same names between the codes and data and to keep in a README.md file in main the order in which files should be run and what is the input and output of each folder. Version Control: Git and Github Git is an extremely powerful software developed by Linus Tovalds (the Linux creator) which has become the gold standard for version control for developers. Version control was not something done often by economists, but it is starting to grow as the need for replicable results grows. Github is just a hosting platform for git-controlled software. The idea behind version control is that we want to keep track of the results of our code at any point in time, and be able to replicate results that weere produced months or years earlier. Another advantage is not having to create seven different versions of the same code. A few git commands are reported here, full git guide coming soon: These are basically all the commands you should ever know # Add files to the git controlled environment git add &quot;filename&quot; # Add all files and folders git add * # Create a snapshot of the code with the following title git commit -m &quot;title&quot; # Push the code to the online repository git push # Pull code from online repository git pull # Branch code in a separate stream git branch branch1 # move among different branches git checkout brach1 # come back to the &quot;master&quot; branch git checkout master # merge the current branch with branch1 git merge branch1 Quality of life tools vscode See guide for using vscode and stata here: gdeiana.github.io/economics/stata-vscode/ Stata libraries: gtools reghdfe python libraries: multiprocessing for running processes in parallel, guide here: https://www.youtube.com/watch?v=fKl2JW_qrso&amp;amp;t=1632s&amp;amp;ab_channel=CoreySchafer R tools: multiprocessing: using foreach and %dopar%</summary></entry><entry><title type="html">Run Stata in VS Code</title><link href="http://localhost:4000/economics/stata-vscode/" rel="alternate" type="text/html" title="Run Stata in VS Code" /><published>2021-08-26T00:00:00-04:00</published><updated>2023-11-22T21:07:46-05:00</updated><id>http://localhost:4000/economics/stata-vscode</id><content type="html" xml:base="http://localhost:4000/economics/stata-vscode/">&lt;h2 id=&quot;why-running-stata-in-visual-studio-code&quot;&gt;Why running Stata in Visual Studio Code&lt;/h2&gt;
 &lt;p&gt;Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code.&lt;br /&gt;
 However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code.&lt;/p&gt;
 
@@ -110,4 +344,4 @@ Then we can look for “Run Code”. This is the command that runs the whole dof
   &lt;li&gt;&lt;em&gt;Code Runner&lt;/em&gt; author Jun Han: &lt;a href=&quot;https://github.com/formulahendry&quot;&gt;https://github.com/formulahendry&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Stata Enhanced&lt;/em&gt; author Kyle Barron: &lt;a href=&quot;https://marketplace.visualstudio.com/publishers/kylebarron&quot;&gt;https://marketplace.visualstudio.com/publishers/kylebarron&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Rundo&lt;/em&gt; and &lt;em&gt;Rundolines&lt;/em&gt; author Friedrich Huebler: &lt;a href=&quot;https://huebler.blogspot.com/&quot;&gt;https://huebler.blogspot.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;MSc in Economics graduate. Currently working as an RA at Bocconi University in Milan.&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;deianaguido@gmail.com&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:deianaguido@gmail.com&quot;}]}</name></author><category term="Economics" /><category term="Software" /><category term="Stata" /><summary type="html">If you are fed up with Stata’s do file editor and want something lighter, smarter and just better you are in the right place.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/images/bio-photo.jpg&quot;, &quot;bio&quot;=&gt;&quot;PhD student in Economics at NYU&quot;, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;@guido_deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;, &quot;url&quot;=&gt;&quot;https://twitter.com/guido_deiana?lang=en&quot;}, {&quot;label&quot;=&gt;&quot;gdeiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/gdeiana&quot;}, {&quot;label&quot;=&gt;&quot;linkedin/guido-deiana&quot;, &quot;icon&quot;=&gt;&quot;fab fa-linkedin&quot;, &quot;url&quot;=&gt;&quot;https://www.linkedin.com/in/guido-deiana/&quot;}, {&quot;label&quot;=&gt;&quot;guido.deiana@nyu.edu&quot;, &quot;icon&quot;=&gt;&quot;fa fa-envelope&quot;, &quot;url&quot;=&gt;&quot;mailto:guido.deiana@nyu.edu&quot;}]}</name></author><category term="Economics" /><category term="Software" /><category term="Stata" /><summary type="html">Why running Stata in Visual Studio Code Economists and statisticians often tend to use softwares (such as Stata or Matlab) as they are, without questioning the environment in which they code. However we can learn a lot from professional programmers, who use more advanced tools and better overall environments to write code. Below are a few are the reasons why I am currently using VS Code to write do files and why I am not planning to go back to Stata’s own do file editor anytime soon: Text and command autocomplete Better syntax highlight Single environment for all my codes (Stata, python, R and even LaTex) Seamless integration with Git Snippets How to Install and run Stata from VSCode Install VS code Look for the latest VS Code version available here: https://code.visualstudio.com Click on Download and install VS Code Install Plug-Ins To install extensions in VS Code click on the icon indicated below. Two plugins are necessary to run Stata in VS Code: Stata Enhanced Allows VS Code to recognize files .do and assigns them a familiar syntax highlighting Code Runner Allows VS Code to run custom commands with a shortcut Download and edit custom scripts Download Scripts Two custom scripts are needed to run Stata from another code editor. Download the scripts here: https://huebler.blogspot.com/2008/04/stata.html. If you are using Stata 15 or later, then rundo51.zip and rundolines51.zip should work. Otherwise if you are using an earlier version, download Rundo41.zip and Rundolines41.zip. Extract both in a convenient location. The scripts don’t need to be in any specific path, they just need to be accessible all the time by Stata and VS Code. Edit Scripts In both rundo and rundolines zipped folders you will find a config file: Open the config file and edit the following lines: statapath = “[Path to your stata Executable]”] Example: * statapath = “C:\Program Files (x86)\Stata15\StataSE-64.exe”* statawin = “[Stata Version]” Example: statawin = “Stata/SE 15.0” Then save the config files and close them. Edit VS Code settings To open the VS Code settings use: CTRL + SHIFT + P. In the dialog window that opens, look for Preferences: Open Settings (JSON) A new window should open with a json file (a text file between two curly brackets). Paste the following line of code between the two curly brackets: &quot;code-runner.executorMapByFileExtension&quot;: { &quot;.do&quot;: &quot;[Path to rundo.exe]&quot; }, &quot;code-runner.customCommand&quot;: &quot;[Path to rundolines.exe]&quot;, &quot;stataRun.stataPath&quot;: &quot;[Path to Stata.exe]&quot;, &quot;stataRun.whichApp&quot;: &quot;stataMP&quot;, &quot;stataRun.pasteSpeed&quot;: 1, &quot;stataRun.advancePosition&quot;: false, Make sure to modify the three paths (rundo, rundolines and Stata) with the paths to the relevant .exe files. Note that the path don’t work if there are any spaces and require the use of double slashes to be readable. Here you can find an example for the path where I have saved rundo.exe: &quot;code-runner.executorMapByFileExtension&quot;: { &quot;.do&quot;: &quot;C:\\PROGRA~2\\Stata13\\ado\\personal\\rundo41\\rundo.exe&quot; }, Add Shortcuts to VS Code to run Stata In Stata’s do file editor we are used to using the CTRL + D shortcut a lot. Fortunately there is an (almost) identical solution here in VS Code. As for the previous step, we need to open the command bar in VS Code by clicking CTRL + SHIFT + P. Then we need to look for Preferences: Open Keyboard Shortcuts. Then we can look for “Run Custom Command”. This is the command that runs the highlighted lines in a do file. We can bind this to the shortcut CTRL + D. Then we can look for “Run Code”. This is the command that runs the whole dofile. We can bind this to CTRL + SHIFT + D. Now, whenever we open a do file with VS Code and we run either a few lines (CTRL + D) or the whole script (CTRL + SHIFT + D), VS Code will run those in a previously opened stata console. If stata is not opened when using either command, then VS Code will simply open a new instance of Stata. Unfortunately I am currently not aware of any way of using multiple stata consoles from VS Code. Credits Code Runner author Jun Han: https://github.com/formulahendry Stata Enhanced author Kyle Barron: https://marketplace.visualstudio.com/publishers/kylebarron Rundo and Rundolines author Friedrich Huebler: https://huebler.blogspot.com/</summary></entry></feed>
